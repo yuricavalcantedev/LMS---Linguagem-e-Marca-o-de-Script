@@ -1,0 +1,51 @@
+body{
+    background-image: url("../images/gradient_bg.png");
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+}
+
+
+.minha-classe{
+    font-color:blue;
+    border-style: dotted;
+}
+
+nav{
+    border-style: double;
+    border-color: red;
+}
+
+section h3{
+    font-family:'Courier New', Courier, monospace;
+}
+
+article header{
+    font-size: 1.5em;
+}
+
+section header{
+    font-size: 20px;
+}
+
+article{
+    border: 1px groove black;
+    margin: 5px;
+    padding: 2px;
+}
+
+section{
+
+    width: 95%;
+    border-width: 0.5pt;
+    border-color: aquamarine;
+    border-style: groove;
+    margin: 5pt;
+    padding: 5pt;
+}
+
+p{
+    color: gray;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
