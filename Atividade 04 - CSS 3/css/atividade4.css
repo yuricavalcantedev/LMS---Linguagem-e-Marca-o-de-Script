@@ -1,0 +1,113 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    padding: 10px;
+}
+
+.header h1{
+    display: inline;
+    color: #555555;
+    font-size: 37px;
+    letter-spacing: 3px;
+}
+
+.header a{
+    text-decoration: none;
+}
+
+.header-dotcom{
+    color: #4CAF50;
+
+}
+
+.span-message{
+    float: right;
+    font-family: "Segoe UI","Arial","sans-serif";
+    letter-spacing: 4px;
+    padding-left: 5px;
+}
+.menu-horizontal{
+    background-color: #4CAF50;
+    color: white;
+    width: 100vw;
+    font-family: "Segoe UI","Arial","sans-serif";
+}
+
+.menu-horizontal ul {
+    list-style: none;
+}
+
+.menu-horizontal ul li{
+    display: inline-block;
+    background-color: #4CAF50;
+    padding: 8px;
+    font-family: "Segoe UI",Arial,sans-serif;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+.menu-horizontal ul a{
+    color: white;
+    text-decoration: none;   
+    font-size: 20px;
+    padding: 5px;
+}
+
+.menu-horizontal ul li:hover{
+    background-color: white;
+    color:black;
+    font-family: fontawesome;
+}
+
+.menu-horizontal ul li:hover a{
+    color:black;
+}
+
+.menu-vertical{
+    position: fixed;
+    width: 15%;
+    height: 100vh;
+    padding: 10px;
+    border-right: 0.5px solid gray;
+}
+
+.menu-vertical header{
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.menu-vertical ul li a{
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.menu-vertical ul li a:hover{
+    background-color: #777777;
+}
+
+.menu-dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.menu-dropdown ul a {
+    text-decoration: none;
+}
+
+.menu-dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.menu-dropdown:hover .menu-dropdown-content{
+    display: block;
+}
