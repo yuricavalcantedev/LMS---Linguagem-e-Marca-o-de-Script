@@ -29,7 +29,10 @@
     font-family: "Segoe UI","Arial","sans-serif";
     letter-spacing: 4px;
     padding-left: 5px;
+    position:relative;
+    top:20px;
 }
+
 .menu-horizontal{
     background-color: #4CAF50;
     color: white;
@@ -44,9 +47,9 @@
 .menu-horizontal ul li{
     display: inline-block;
     background-color: #4CAF50;
-    padding: 8px;
-    font-family: "Segoe UI",Arial,sans-serif;
+    font-family: "Segoe UI","Arial","sans-serif";
     letter-spacing: 4px;
+    padding: 8px;
     text-align: center;
 }
 
@@ -95,17 +98,52 @@
     display: inline-block;
 }
 
+.menu-dropdown-content header{
+    color: black;
+    font-size: 20px;
+    font-weight: 400px;
+    margin-left: 10px;
+    background-color: #D3D3D3;
+
+}
+
 .menu-dropdown ul a {
     text-decoration: none;
+    padding: 0px;
 }
 
 .menu-dropdown-content{
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 350px;
     z-index: 1;
+}
+
+.menu-dropdown-content ul li{
+    background-color: #f1f1f1;
+    color: black;
+    text-align: left;
+}
+
+.header-menu-dropdown{
+    padding: 5px;
+}
+
+.menu-dropdown-content ul li a{
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+}
+
+
+.menu-dropdown-content ul li:hover{
+    background-color: #777777;
+}
+
+.menu-dropdown-content li{
+    min-width: 350px;
+    text-align: left;
 }
 
 .menu-dropdown:hover .menu-dropdown-content{
