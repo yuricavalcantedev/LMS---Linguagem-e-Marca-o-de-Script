@@ -1,151 +1,177 @@
-
 *{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font-family: Verdana,sans-serif;
 }
 
-.header{
-    padding: 10px;
+header{
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-top: 20px;
 }
 
-.header h1{
-    display: inline;
-    color: #555555;
-    font-size: 37px;
-    letter-spacing: 3px;
+ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
 }
 
-.header a{
+a{
     text-decoration: none;
 }
 
-.header-dotcom{
-    color: #4CAF50;
-
+.header{
+    font-family: fontawesome;
+    font-size: 37px;
+    letter-spacing: 3px;
+    display: inline;
+    margin-left: 10px;
 }
 
-.span-message{
+.buttons{
     float: right;
-    font-family: "Segoe UI","Arial","sans-serif";
+}
+
+.dotcom-span{
+    color: #4CAF50;
+}
+
+.subHeader{
+    position: relative;
+    float: right;
+    margin-top: 16px;
+    display: block;
+    font-family: "Segoe UI",Arial,sans-serif;
     letter-spacing: 4px;
-    padding-left: 5px;
-    position:relative;
-    top:20px;
+    bottom: 0px;
+    margin-right: 10px;
+}
+
+.background-green{
+    background-color: #4CAF50;
 }
 
 .menu-horizontal{
-    background-color: #4CAF50;
-    color: white;
+    display: block;
     width: 100vw;
-    font-family: "Segoe UI","Arial","sans-serif";
+    height: 57px;
+    overflow: hidden;
 }
 
-.menu-horizontal ul {
-    list-style: none;
-}
-
-.menu-horizontal ul li{
-    display: inline-block;
-    background-color: #4CAF50;
-    font-family: "Segoe UI","Arial","sans-serif";
-    letter-spacing: 4px;
-    padding: 8px;
+.menu-horizontal a{
+    width: auto;
+    float: left;
     text-align: center;
-}
-
-.menu-horizontal ul a{
     color: white;
-    text-decoration: none;   
-    font-size: 20px;
-    padding: 5px;
+    font-size: 17px;
+    padding: 8px 16px;
+    padding-top: 16px!important;
+    padding-bottom: 16px!important;
+    font-family: "Segoe UI",Arial,sans-serif;
+    letter-spacing: 4px;
 }
 
-.menu-horizontal ul li:hover{
+.menu-horizontal a:hover{
     background-color: white;
-    color:black;
-    font-family: fontawesome;
-}
-
-.menu-horizontal ul li:hover a{
-    color:black;
+    color: black;
 }
 
 .menu-vertical{
     position: fixed;
     width: 15%;
+    display: block;
     height: 100vh;
     padding: 10px;
     border-right: 0.5px solid gray;
+    box-shadow: 1px 1px 2px 0.5px gray;
+}
+
+.menu-vertical li{
+    padding: 0px;
+    padding-bottom: 5px;
+    margin: 0px;
+
+}
+
+.menu-vertical li a{
+    font-size: 16px;
+    color: black;
+    display: block;
+    width: 100%;
+}
+
+.menu-vertical li a:hover{
+    background-color: #cccc!important
 }
 
 .menu-vertical header{
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 15px;
     font-size: 20px;
-    padding-bottom: 10px;
 }
 
-.menu-vertical ul li a{
-    display: block;
-    text-decoration: none;
-    color: black;
-}
-
-.menu-vertical ul li a:hover{
-    background-color: #777777;
-}
-
-.menu-dropdown{
+.dropdown{
     position: relative;
     display: inline-block;
 }
 
-.menu-dropdown-content header{
-    color: black;
-    font-size: 20px;
-    font-weight: 400px;
-    margin-left: 10px;
-    background-color: #D3D3D3;
-
-}
-
-.menu-dropdown ul a {
-    text-decoration: none;
-    padding: 0px;
-}
-
-.menu-dropdown-content{
+.dropdown-content{
     display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 350px;
-    z-index: 1;
+    position: fixed;
+    margin-top: 50px;
+    background-color: #ccc!important;
+    min-width: 160px;
+    width: 100%;
+    height: 100%;
+    color: black
 }
-
-.menu-dropdown-content ul li{
-    background-color: #f1f1f1;
-    color: black;
+.dropdown-content header{
+    margin: 0px;
+    padding: 0px;
     text-align: left;
 }
 
-.header-menu-dropdown{
-    padding: 5px;
-}
 
-.menu-dropdown-content ul li a{
-    color: black;
-    text-decoration: none;
-    padding: 5px;
-}
-
-
-.menu-dropdown-content ul li:hover{
-    background-color: #777777;
-}
-
-.menu-dropdown-content li{
-    min-width: 350px;
-    text-align: left;
-}
-
-.menu-dropdown:hover .menu-dropdown-content{
+.dropdown-content li{
+    padding: 0px;
+    padding-bottom: 5px;
+    margin: 0px;
     display: block;
+}
+
+.dropdown-content li a{
+    font-size: 16px;
+    color: black;
+    display: block;
+    text-align: left;
+    float:none;
+    letter-spacing: 0px;
+    width: auto;
+    padding: 10px;
+    font-family: Verdana,sans-serif;
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
+}
+
+.dropdown-content a:hover{
+
+    background-color: gray!important;
+}
+
+.dropdown-content header{
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-family: Verdana,sans-serif;
+    color: black;
+}
+
+li:hover .dropdown-content {
+    display: block;
+    z-index: 1;
 }
