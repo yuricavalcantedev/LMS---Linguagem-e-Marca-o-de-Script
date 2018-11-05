@@ -1,4 +1,4 @@
-{"mensagens": [
+[
                          {
                  	              "usuario": "victor03",
                                  "texto": "Bom?"
@@ -10,6 +10,5 @@
                          {
                  	              "usuario": "victor03",
                                  "texto": "Que bom"
-                         },
+                         }
                     ]
-}

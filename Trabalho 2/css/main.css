@@ -1,6 +1,6 @@
 *{
     margin: 0px;
-    padding: 0px;            
+    padding: 0px;
 }
 
 .my-container{
@@ -35,7 +35,7 @@
 .nome-programa{
     float: left;
     color: black;
-    margin-left: 80px;      
+    margin-left: 80px;
 }
 
 .botao-entrar{
@@ -74,7 +74,7 @@
 }
 
 .header-whatsapp{
-    
+
 }
 
 .messages a{
@@ -85,6 +85,17 @@
     width: 300px;
     margin-left: 20px;
     margin-top: 10px;
+}
+
+.my-panel-messages-container-right{
+    width: 300px;
+    margin-right: : 20px !important;
+    margin-top: 10px;
+    float: right;
+}
+
+.my-panel-heading-right{
+  background: green;
 }
 
 footer{

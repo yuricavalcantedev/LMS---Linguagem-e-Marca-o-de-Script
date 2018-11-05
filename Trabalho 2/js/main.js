@@ -4,17 +4,17 @@
    let urlMessagesByGroup = "http://rest.learncode.academy/api/yuri/";
    let urlMessagesByGroupPattern = "http://rest.learncode.academy/api/yuri/";
 
-   
+
    let groupNameApp = document.querySelector(".group-name");
    let groupsList;
    let messagesByGroupList;
    let idGroupActivated;
-   
+
    let div_lista_amigos = document.querySelector(".lista-amigos");
    let listaAmigosUl = document.querySelector(".menu-lista-amigos");
    let div_messages = document.querySelector(".messages");
-   let button_send_new_message;   
-   
+   let button_send_new_message;
+
    let button_sign_in = document.querySelector(".botao-entrar");
 
    button_sign_in.addEventListener("click", function () {
@@ -24,6 +24,7 @@
 
                 localStorage.setItem("idUser", prompt("Hi, type below your idUser to sign in!"));
                 button_sign_in.value = "Logout";
+                groupNameApp.innerHTML = "Bem vindo, " + localStorage.getItem("idUser");
 
             } else {
 
@@ -57,26 +58,32 @@
 
     function createNewGroup(nameGroup, idGroup) {
 
-        let xhttp = new XMLHttpRequest();
-        let newGroup = {};
-        newGroup.groupName = nameGroup;
-        newGroup.groupID = idGroup;
+        if(nameGroup.length > 3 && idGroup.length > 3){
 
-        newGroupJson = JSON.stringify(newGroup);
-        console.log(newGroupJson);
-        xhttp.open("POST", urlPOSTGroups, true);
-        xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xhttp.onload = function () {
-                var response = JSON.parse(xhttp.responseText);
-                if (xhttp.readyState == 4 && xhttp.status == "201") {
-                    listaAmigosUl.innerHTML = "";
-                    getGroups();
-                    console.log(response);
-                } else {
-                    console.error(response);
-                }
-        }     
-        xhttp.send(newGroupJson);
+                  let xhttp = new XMLHttpRequest();
+                  let newGroup = {};
+                  newGroup.groupName = nameGroup;
+                  newGroup.groupID = idGroup;
+
+                  newGroupJson = JSON.stringify(newGroup);
+                  console.log(newGroupJson);
+                  xhttp.open("POST", urlPOSTGroups, true);
+                  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                  xhttp.onload = function () {
+                          var response = JSON.parse(xhttp.responseText);
+                          if (xhttp.readyState == 4 && xhttp.status == "200") {
+                              listaAmigosUl.innerHTML = "";
+                              getGroups();
+                              console.log(response);
+                          } else {
+                              console.error(response);
+                          }
+                  }
+                  xhttp.send(newGroupJson);
+        }else{
+          console.log("Nomes de grupos devem ter mais de 3 caractéres");
+        }
+
     }
 
     function getGroups() {
@@ -149,10 +156,17 @@
     function createPanelMessage(title, text) {
 
         let div_panel_main = document.createElement("div");
-        div_panel_main.classList.add("panel", "panel-default", "panel-messages", "my-panel-messages-container");
-
         let div_panel_heading = document.createElement("div");
-        div_panel_heading.classList.add("panel-heading");
+
+
+        if(title != localStorage.getItem("idUser"))
+            div_panel_main.classList.add("panel", "panel-default", "panel-messages", "my-panel-messages-container");
+            div_panel_heading.classList.add("panel-heading");
+        else{
+            div_panel_main.classList.add("panel", "panel-default", "panel-messages", "my-panel-messages-container-right");
+        }
+
+
 
         let h4_title_heading = document.createElement("h4");
         h4_title_heading.classList.add("panel-title");
@@ -208,23 +222,69 @@
         let newMessageJson = JSON.stringify(newMessage);
 
         let xhttp = new XMLHttpRequest();
-        xhttp.open("POST", urlMessagesByGroup, true);
+        xhttp.open("POST", urlMessagesByGroup + idGroupActivated, true);
         xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        
+
         xhttp.onload = function () {
             var response = JSON.parse(xhttp.responseText);
-            if (xhttp.readyState == 4 && xhttp.status == "201") {
+            if (xhttp.readyState == 4) {
                 div_messages.innerHTML = "";
                 getMessagesByGroup(idGroupActivated);
                 console.log(response);
             } else {
                 console.error(response);
             }
-    }     
-
-       
+    }
         xhttp.send(newMessageJson);
     }
 
-    listaAmigosUl.innerHTML = "";
+    function postGroupsAndMessages(){
+
+      listaAmigosUl.innerHTML = "";
+
+      let grupoFamilia = {};
+      grupoFamilia.groupName = "Grupo da Família";
+      grupoFamilia.groupID = "grupoFamilia";
+
+      let grupoChurrasco = {};
+      grupoChurrasco.groupName = "Churrascão no Domingão";
+      grupoChurrasco.groupID = "grupoChurrasco";
+
+      let grupoTopzera = {};
+      grupoTopzera.groupName = "Só Topzera";
+      grupoTopzera.groupID = "grupoTopzera";
+
+      let grupoFamiliaJson = JSON.stringify(grupoFamilia);
+      let grupoChurrascoJson = JSON.stringify(grupoChurrasco);
+      let grupoTopzeraJson = JSON.stringify(grupoTopzera);
+
+      console.log(grupoFamiliaJson);
+
+      let newGrupos = "[" + grupoFamiliaJson + "," + grupoChurrascoJson + "," + grupoTopzeraJson + "]";
+      console.log(newGrupos);
+
+      let xhttp = new XMLHttpRequest();
+      xhttp.open("POST", urlPOSTGroups, true);
+      xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+      xhttp.onload = function () {
+          var response = JSON.parse(xhttp.responseText);
+          if (xhttp.readyState == 4) {
+              listaAmigosUl.innerHTML = "";
+              getGroups();
+              console.log(response);
+          } else {
+              console.error(response);
+          }
+  }
+        xhttp.send(newGrupos);
+
+    }
+
+    postGroupsAndMessages();
+
     getGroups();
+
+
+/*Preciso tirar essa dúvida com o professor. Se eu for colocar um por um, o código vai ficar grande.
+  Se for para colocar por lista, eu não consigo adicionar um outro posteriormente*/
