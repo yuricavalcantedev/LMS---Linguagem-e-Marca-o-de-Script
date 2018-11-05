@@ -1,0 +1,85 @@
+*{
+    margin: 0px;
+    padding: 0px;            
+}
+
+.my-container{
+    width: 900px;
+    height: 90vh;
+    margin-top: 20px;
+    position: relative;
+    margin: auto;
+    background: gainsboro;
+}
+
+.nome-programa{
+    float: left;         
+}
+
+.botao-entrar{
+    float: right;
+    margin-right: 10px;
+    margin-top: 1.5px;
+}
+
+.group-name{
+    display: block;
+    text-align: center;
+    margin-left: 250px;
+    margin-top: 1.5px;
+}
+
+.lista-amigos{
+    float: left;
+    height: 530px;
+    width: 20vw;
+}
+
+.messages{
+    box-sizing: border-box;
+    float: right;
+    height: 532px;
+    width: 67vw;
+    margin-right: 2px;
+    margin-bottom: 10px;
+    background: white;
+    padding-right: 10px;
+}
+
+.menu-lista-amigos{
+    font-size: 15px;
+    color: white;
+}
+
+.header-whatsapp{
+    
+}
+
+.messages a{
+    text-decoration:none;
+}
+
+footer{
+    position: absolute;
+    margin-top: 80vh;
+    width: 60vw;
+    margin-left: 10px;
+}
+
+.input-text-new-message{
+    width:60vw;
+}
+
+.button-submit-new-message{
+    margin-left: 2px;
+}
+
+.create-new-group{
+    text-align: center;
+}
+
+.create-new-group input{
+    width: 200px;
+    margin-top: 5px;
+    margin-left: 5px;
+}

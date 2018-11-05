@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+</head>
+
+<body>
+
+    <div class="my-container">
+        <header class="header-whatsapp">
+            <p class="nome-programa">LMS Messenger</p>
+            <input class="botao-entrar btn btn-primary" type="button" value="Login">
+            <p class="group-name">Bem-vindo</p>
+        </header>
+
+        <div class="lista-amigos">
+
+            <ul class="menu-lista-amigos">
+            </ul>
+
+            <div class="create-new-group">
+                <label for="newGroupName">Digite o nome do novo grupo</label>
+                <input type="text" class="form-control" id="newGroupName">
+
+                <label for="newGroupName">Digite o id do novo grupo</label>
+                <input type="text" class="form-control" id="idNewGroup">
+                <input class="btn btn-primary" type="button" id = "buttonCreateGroup" value="Criar">
+            </div>
+
+        </div>
+
+        <div class="messages">
+
+        </div>
+
+        <div class="alert alert-success" role="alert" hidden = "true">
+            Grupo criado com sucesso!
+        </div>
+
+    </div>
+
+    <script src="./js/main.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+</body>
+
+</html>
