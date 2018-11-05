@@ -18,7 +18,6 @@
     float: left;
     height: 550px;
     width: 25%;
-    overflow-y: auto;
 }
 
 .messages{
@@ -47,22 +46,27 @@
 .group-name{
     display: block;
     text-align: center;
-    margin-left: 250px;
+    margin-left: 20px !important;
     margin-top: 1.5px;
 }
 
 .group-image{
     float: left;
+
 }
 
 .menu-lista-amigos{
     font-size: 15px;
     color: white;
+    height: 350px;
+    overflow-y: auto;
 }
 
 /* Propriedades que afetam cada item da lista de grupos existente*/
 .menu-lista-amigos li{
     float: left;
+    display: block;
+    margin: 5px 10px;
 }
 
 
@@ -70,11 +74,6 @@
     float: left;
     text-align: center;
     vertical-align: middle;
-
-}
-
-.header-whatsapp{
-
 }
 
 .messages a{
@@ -89,7 +88,7 @@
 
 .my-panel-messages-container-right{
     width: 300px;
-    margin-right: : 20px !important;
+    margin-right: 20px !important;
     margin-top: 10px;
     float: right;
 }

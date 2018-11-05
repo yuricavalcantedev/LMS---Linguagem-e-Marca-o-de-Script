@@ -35,6 +35,7 @@
             console.log(localStorage.getItem("idUser"))
             localStorage.removeItem("idUser");
             button_sign_in.value = "Login";
+            groupNameApp.innerHTML = "Bem vindo";
 
         }
 
@@ -92,9 +93,9 @@
         xhttp.onreadystatechange = function () {
             if (xhttp.readyState == 4) {
                 groupsList = JSON.parse(xhttp.responseText);
-                for (let i = 0; i <= groupsList[0].length; i++) {
-                    createGroupItem(groupsList[0][i].groupName,
-                        groupsList[0][i].groupID);
+                for (let i = 0; i < groupsList.length; i++) {
+                    createGroupItem(groupsList[i].groupName,
+                        groupsList[i].groupID);
                 }
             }
         }
@@ -110,9 +111,9 @@
         xhttp.onreadystatechange = function () {
             if (xhttp.readyState == 4) {
                 messagesByGroupList = JSON.parse(xhttp.responseText);
-                for (let i = 0; i < messagesByGroupList[0].length; i++) {
-                    createPanelMessage(messagesByGroupList[0][i].usuario,
-                        messagesByGroupList[0][i].texto);
+                for (let i = 0; i < messagesByGroupList.length; i++) {
+                    createPanelMessage(messagesByGroupList[i].userName,
+                        messagesByGroupList[i].message);
                 }
                 urlMessagesByGroup = urlMessagesByGroupPattern;
                 createFooterNewMessage()
@@ -153,28 +154,27 @@
         listaAmigosUl.appendChild(li);
     }
 
-    function createPanelMessage(title, text) {
+    function createPanelMessage(userName, message) {
 
         let div_panel_main = document.createElement("div");
         let div_panel_heading = document.createElement("div");
 
 
-        if(title != localStorage.getItem("idUser"))
+        if(userName != localStorage.getItem("idUser")){
             div_panel_main.classList.add("panel", "panel-default", "panel-messages", "my-panel-messages-container");
             div_panel_heading.classList.add("panel-heading");
-        else{
+        }else{
             div_panel_main.classList.add("panel", "panel-default", "panel-messages", "my-panel-messages-container-right");
+            div_panel_heading.classList.add("panel-heading", "my-panel-heading-right");
         }
-
-
 
         let h4_title_heading = document.createElement("h4");
         h4_title_heading.classList.add("panel-title");
-        h4_title_heading.innerHTML = title;
+        h4_title_heading.innerHTML = userName;
 
         let div_panel_body = document.createElement("div");
         div_panel_body.classList.add("panel-body");
-        div_panel_body.innerHTML = text;
+        div_panel_body.innerHTML = message;
 
         div_panel_heading.appendChild(h4_title_heading);
         div_panel_main.appendChild(div_panel_heading);
@@ -206,7 +206,7 @@
         button_send_new_message.addEventListener("click", function () {
 
             let textfield_new_message = document.querySelector(".input-text-new-message");
-            let text = textfield_new_message.innerHTML;
+            let text = textfield_new_message.value;
             sendNewMessage(text);
         });
     }
@@ -216,8 +216,8 @@
         let idUser = localStorage.getItem("idUser");
 
         let newMessage = {};
-        newMessage.usuario = idUser;
-        newMessage.text = text;
+        newMessage.userName = idUser;
+        newMessage.message = text;
 
         let newMessageJson = JSON.stringify(newMessage);
 
@@ -238,53 +238,4 @@
         xhttp.send(newMessageJson);
     }
 
-    function postGroupsAndMessages(){
-
-      listaAmigosUl.innerHTML = "";
-
-      let grupoFamilia = {};
-      grupoFamilia.groupName = "Grupo da Família";
-      grupoFamilia.groupID = "grupoFamilia";
-
-      let grupoChurrasco = {};
-      grupoChurrasco.groupName = "Churrascão no Domingão";
-      grupoChurrasco.groupID = "grupoChurrasco";
-
-      let grupoTopzera = {};
-      grupoTopzera.groupName = "Só Topzera";
-      grupoTopzera.groupID = "grupoTopzera";
-
-      let grupoFamiliaJson = JSON.stringify(grupoFamilia);
-      let grupoChurrascoJson = JSON.stringify(grupoChurrasco);
-      let grupoTopzeraJson = JSON.stringify(grupoTopzera);
-
-      console.log(grupoFamiliaJson);
-
-      let newGrupos = "[" + grupoFamiliaJson + "," + grupoChurrascoJson + "," + grupoTopzeraJson + "]";
-      console.log(newGrupos);
-
-      let xhttp = new XMLHttpRequest();
-      xhttp.open("POST", urlPOSTGroups, true);
-      xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-
-      xhttp.onload = function () {
-          var response = JSON.parse(xhttp.responseText);
-          if (xhttp.readyState == 4) {
-              listaAmigosUl.innerHTML = "";
-              getGroups();
-              console.log(response);
-          } else {
-              console.error(response);
-          }
-  }
-        xhttp.send(newGrupos);
-
-    }
-
-    postGroupsAndMessages();
-
-    getGroups();
-
-
-/*Preciso tirar essa dúvida com o professor. Se eu for colocar um por um, o código vai ficar grande.
-  Se for para colocar por lista, eu não consigo adicionar um outro posteriormente*/
+/*Rodrigo Freitas - JA*/
